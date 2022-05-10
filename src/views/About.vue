@@ -20,6 +20,17 @@ export default {
   components: {
     AppDialog,
   },
+  mounted() {
+    const timeList = Array(5)
+      .fill("")
+      .map(() => Math.floor(Math.random() * 6));
+
+    timeList.forEach((time, index) => {
+      setTimeout(() => {
+        console.log(index + 1);
+      }, time * 1000);
+    });
+  },
   data() {
     return {
       isShow: true,
