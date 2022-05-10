@@ -21,15 +21,20 @@ export default {
     AppDialog,
   },
   mounted() {
-    const timeList = Array(5)
-      .fill("")
-      .map(() => Math.floor(Math.random() * 6));
-
-    timeList.forEach((time, index) => {
+    let interval = 1;
+    let num = 1;
+    const print = () => {
       setTimeout(() => {
-        console.log(index + 1);
-      }, time * 1000);
-    });
+        if (num <= 5) {
+          console.log(num);
+          num++;
+          interval = Math.floor(Math.random() * 6);
+          print();
+        }
+      }, interval * 1000);
+    };
+
+    print();
   },
   data() {
     return {
